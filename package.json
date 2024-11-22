@@ -20,16 +20,16 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "src/assets/lum-recorder-icon.ico"
+        "icon": "src/assets/jscast-icon.ico"
       },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "lum_recorder",
-            "loadingGif": "src/assets/Logo-Lum.gif",
-            "setupIcon": "src/assets/lum-recorder-icon.ico",
-            "iconUrl": "https://github.com/javdome/lum-recorder/blob/master/src/assets/lum-recorder-icon.ico?raw=true"
+            "name": "jscast_recorder",
+            "loadingGif": "src/assets/Logo.gif",
+            "setupIcon": "src/assets/jscast-icon.ico",
+            "iconUrl": "https://github.com/jhedev96/jscast-app/blob/master/src/assets/jscast-icon.ico?raw=true"
           }
         },
         {
