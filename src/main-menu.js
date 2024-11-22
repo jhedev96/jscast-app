@@ -4,22 +4,21 @@ const { dialog, Menu } = remote;
 //https://github.com/yusitnikov/fix-webm-duration
 const ysFixWebmDuration = require('./lib/fix-webm-duration');
 
-
 window.onload = () => {
     // const warningEl = document.getElementById('warning');
-    const videoElement = document.getElementById('videoElement');
-    const captureBtn = document.getElementById('captureBtn');
-    const startBtn = document.getElementById('startBtn');
-    const stopBtn = document.getElementById('stopBtn');
-    const audioToggle = document.getElementById('audioToggle');
-    const micAudioToggle = document.getElementById('micAudioToggle');
-    const micDevice = document.getElementById('micDevice');
-    const minimizeOnRecord = document.getElementById('minimizeOnRecord');
-    const qualitySelect = document.getElementById('quality');
+    const videoElement = document.getElementById('videoElement'),
+        captureBtn = document.getElementById('captureBtn'),
+        startBtn = document.getElementById('startBtn'),
+        stopBtn = document.getElementById('stopBtn'),
+        audioToggle = document.getElementById('audioToggle'),
+        micAudioToggle = document.getElementById('micAudioToggle'),
+        micDevice = document.getElementById('micDevice'),
+        minimizeOnRecord = document.getElementById('minimizeOnRecord'),
+        qualitySelect = document.getElementById('quality'),
 
-    const cancelBtn = document.getElementById('cancelBtn');
-    const faceBtn = document.getElementById('faceBtn');
-    const roundedCam = document.getElementById('roundedCam');
+        cancelBtn = document.getElementById('cancelBtn'),
+        faceBtn = document.getElementById('faceBtn'),
+        roundedCam = document.getElementById('roundedCam');
 
     /* ADDING MICS AVAILABLE */
     micAudioToggle.onchange = () => {
@@ -34,32 +33,19 @@ window.onload = () => {
       })
     })
 
-
-
-
   /* FACE BUTTON AND LOGO SELECTION */
     faceBtn.onclick = () => {
       ipcRenderer.send('faceBtn-clicked', roundedCam.checked);
       roundedCam.disabled = !roundedCam.disabled;
     };
-
-
     
     // if('getDisplayMedia' in navigator.mediaDevices) warningEl.style.display = 'none';
   
-    let blobs;
-    let blob;
-    let rec;
-    let stream;
-    let voiceStream;
-    let desktopStream;
+    let blobs, blob, rec, stream, voiceStream, desktopStream, startTime;
     // let quality;
-    let startTime;
     
     /* QUALITY SELECTION */
     // quality = 
-
-
 
     /* MERGING STREAMS  */ 
     const mergeAudioStreams = (desktopStream, voiceStream) => {
@@ -86,12 +72,11 @@ window.onload = () => {
         
       return (hasDesktop || hasVoice) ? destination.stream.getAudioTracks() : [];
     };
-  
-    
+
     /* SELECCION DE LO QUE SE QUIERE GRABAR Y STREAMS PREPARADOS */
     captureBtn.onclick = async function () {
       const inputSources = await desktopCapturer.getSources({
-        types: [ 'screen']
+        types: ['screen']
       });
       console.log(inputSources);
       const videoOptionsMenu = Menu.buildFromTemplate(
@@ -105,8 +90,7 @@ window.onload = () => {
     
       videoOptionsMenu.popup();
     };
-    
-    
+
     async function selectSource(source) {
       const audio = audioToggle.checked || false;
       const mic = micAudioToggle.checked || false;
@@ -191,8 +175,6 @@ window.onload = () => {
       cancelBtn.disabled = false;
     };
 
-
-  
     /* CANCELS THE SELECTION */
     cancelBtn.onclick = () => {
       captureBtn.disabled = false;
@@ -214,7 +196,6 @@ window.onload = () => {
       videoElement.srcObject = stream;
     }
 
-
     /* STARTS TO RECORD */
     startBtn.onclick = () => {
       const minimize = minimizeOnRecord.checked || false;
@@ -228,7 +209,6 @@ window.onload = () => {
       }, 6100);
     };
   
-
     /* STOPS TO RECORD */
     stopBtn.onclick = () => {
       captureBtn.disabled = false;
@@ -247,17 +227,14 @@ window.onload = () => {
       ipcRenderer.send('stop-record');
     };
 
-
     ipcRenderer.on('please-stop', function(){
       if (!stopBtn.disabled) stopBtn.click();
     });
 
-    
     // Open the github link in the default browser
     document.getElementById('github-link').addEventListener('click', event => {
       event.preventDefault();
       require("electron").shell.openExternal(event.target.href);
     });
-
 
 };
