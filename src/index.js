@@ -6,12 +6,12 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
   app.quit();
 }
 
-let isShownFace = false;
-let bigFace = false;
-let winFace = null;
-let mainWindow;
-let winCounter = null;
-let isCamRounded = false;
+let isShownFace = false,
+  bigFace = false,
+  winFace = null,
+  winCounter = null,
+  isCamRounded = false,
+  mainWindow;
 
 // Create the rounded face window.
 const createWinFace = () => { 
@@ -71,7 +71,7 @@ const createWindow = () => {
     width: 850,
     height: 675,
     autoHideMenuBar: true,
-    icon: __dirname +'/assets/lum-recorder-icon.ico',
+    icon: __dirname +'/assets/jscast-icon.ico',
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
@@ -121,9 +121,6 @@ const createWindow = () => {
 };
 
 
-
-
-
 // Allow only one instance of electron
 const gotTheLock = app.requestSingleInstanceLock();
 
@@ -152,12 +149,12 @@ if (!gotTheLock) {
           bigFace = false;
         
         } else if (bigFace && !isCamRounded) {
-          winFace.setSize(320,240);
+          winFace.setSize(320, 240);
           winFace.setPosition(winFace.getPosition()[0] + 240, winFace.getPosition()[1] + 180);
           bigFace = false;
           
         } else if(!bigFace && isCamRounded) {
-          winFace.setSize(700,700);
+          winFace.setSize(700, 700);
           winFace.setPosition(winFace.getPosition()[0] - 205, winFace.getPosition()[1] - 205);
           bigFace = true;
 
