@@ -48,13 +48,6 @@ npm run make
 
 Electron-forge creates the `out` folder where your package will be located.
 
-### Executable
-If your OS is Windows you can download the executable from the [Release section](https://github.com/javdome/lum-recorder/releases) to install the application.
-
-> During the installation, probably you will see a security alert.
-> That is normal, since I have not paid any certifiation for the distribuion.
-> So, press "More info" and continue with the installation.
-
 <br>
 
 ## Recognitions
