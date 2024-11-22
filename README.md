@@ -2,10 +2,8 @@
 
 <br>
 
-# Lum Screen Recorder
+# JSCast - Screen Recorder
 🎥💻 Screen recorder with some options like adding your webcam in a square, or a circle, that you can move around. Build with Electron.
-
-![example](https://user-images.githubusercontent.com/36993404/103951818-a3555480-513f-11eb-8258-ac418fd9b02f.gif)
 
 <br>
 
