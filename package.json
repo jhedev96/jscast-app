@@ -1,6 +1,6 @@
 {
-  "name": "lum-recorder",
-  "productName": "lum-recorder",
+  "name": "jscast",
+  "productName": "jscast",
   "version": "1.6.0",
   "description": "Screen recorder with options like audio system, microphone, webcam, etc...",
   "main": "src/index.js",
@@ -13,8 +13,8 @@
   },
   "keywords": [],
   "author": {
-    "name": "Javi Domenech",
-    "email": "javdome@gmail.com"
+    "name": "JheDev96",
+    "email": "jhedev@outlook.com"
   },
   "license": "MIT",
   "config": {
